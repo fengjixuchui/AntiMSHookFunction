@@ -4,10 +4,12 @@
 AntiMSHookFunction is an AntiHook library for MSHookFunction at runtime (make MSHookFunction doesn't work)    
 include `MSHookFunction Check` and `Anti-MSHookFunction`
 
+[Swift-Version](https://github.com/TannerJin/IOSSecuritySuite/blob/master/IOSSecuritySuite/MSHookFunctionChecker.swift)
+
 ## Usage 
 
 ```c
-void* orig_antiDebug = antiMSHook(antiDebug);  // antiDebug noinline
+void* orig_antiDebug = antiMSHook(antiDebug);
     
 if (orig_antiDebug == NULL) {
     printf("[+++] Not MSHook");
@@ -19,7 +21,6 @@ if (orig_antiDebug == NULL) {
     _antiDebug();
 }
 
-// noinline
 void antiDebug() {
     resetSymbol(@"dlopen");   // anti-fishhook
     resetSymbol(@"dlsym");    // anti-fishhook
